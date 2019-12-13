@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GitLogger.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,11 @@ namespace GitLogger
 {
 	public partial class App : Application
 	{
+        public static CommitViewModel CommitViewModel{ get; set; } = new CommitViewModel();
 		public App ()
 		{
 			InitializeComponent();
-
+            App.CommitViewModel.LoadData();
 			MainPage = new GitLogger.MainPage();
 		}
 

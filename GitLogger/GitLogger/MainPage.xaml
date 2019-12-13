@@ -4,8 +4,28 @@
              xmlns:local="clr-namespace:GitLogger"
              x:Class="GitLogger.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Text="My Repositories" Grid.Row="0"  FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        <ListView x:Name="lstRepos" Grid.Row="1"  ItemsSource="{Binding Commits}" >
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <Frame Padding="5" Margin="3, 12, 3, 12" BackgroundColor="#2b424e">
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="Medium" TextColor="#DD9F36" Text="{Binding repoName}" />
+                                <Frame Padding="3" Margin="5, 0, 5, 0">
+                                    <Label FontSize="Small"  TextColor="White" Text="{Binding message}" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                    </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
+    </Grid>
 </ContentPage>

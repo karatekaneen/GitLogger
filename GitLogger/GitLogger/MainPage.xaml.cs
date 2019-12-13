@@ -12,6 +12,7 @@ namespace GitLogger
 		public MainPage()
 		{
 			InitializeComponent();
+            BindingContext = App.CommitViewModel;
 		}
 	}
 }
